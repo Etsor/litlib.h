@@ -33,16 +33,8 @@ typedef struct Matrix_f_s {
 
 // Random
 int rand_i(int min, int max) { return min + rand() % (max - min + 1); }
-double rand_d(double min, double max)
-{
-    double t = (double)rand() / (double)RAND_MAX;
-    return min + t * (max - min);
-}
-float rand_f(float min, float max)
-{
-    float t = (float)rand() / (float)RAND_MAX;
-    return min + t * (max - min);
-}
+double rand_d(double min, double max) { return min + ((double)rand() / (double)RAND_MAX) * (max - min); }
+float rand_f(float min, float max) { return min + ((float)rand() / (float)RAND_MAX) * (max - min); }
 int rand_bool() { return rand() & 1; }
 int rand_sign() { return (rand() & 1) ? 1 : -1; }
 
